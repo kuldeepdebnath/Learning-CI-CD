@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps CI/CD Pipeline</title>
+    <title>CI/CD Pipeline Project</title>
+
+    <!-- Prevent caching -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
     <style>
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
             color: #fff;
         }
 
         header {
             text-align: center;
-            padding: 2em 1em;
-            background: rgba(0,0,0,0.3);
+            padding: 2em;
+            background: rgba(0,0,0,0.4);
         }
 
         header h1 {
@@ -24,19 +29,15 @@
             font-size: 2.5em;
         }
 
-        nav {
-            margin-top: 10px;
-        }
-
         nav a {
             color: #fff;
-            text-decoration: none;
             margin: 0 15px;
+            text-decoration: none;
             font-weight: bold;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: #4CAF50;
         }
 
         section {
@@ -46,32 +47,26 @@
             padding: 2em;
             width: 80%;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         h2 {
-            color: #2a5298;
+            color: #243b55;
         }
 
-        .highlight {
-            color: #1e3c72;
-            font-weight: bold;
+        .badge {
+            background: #4CAF50;
+            padding: 6px 12px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
         }
 
         footer {
             text-align: center;
             padding: 1em;
             background: rgba(0,0,0,0.5);
-            margin-top: 30px;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #4CAF50;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            margin-top: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -80,47 +75,48 @@
 
 <header>
     <h1>🚀 DevOps CI/CD Pipeline</h1>
-    <p>Deployed using Jenkins + Ansible on AWS EC2</p>
+    <p>Auto Deployment using Jenkins + Ansible on AWS EC2</p>
 
     <nav>
         <a href="#home">Home</a>
+        <a href="#pipeline">Pipeline</a>
         <a href="#about">About</a>
-        <a href="#project">Project</a>
     </nav>
 </header>
 
 <section id="home">
     <h2>🏠 Home</h2>
-    <p>This webpage is automatically deployed using a <span class="highlight">CI/CD pipeline</span>.</p>
-    <div class="badge">Live Deployment Active</div>
+    <p>This website is automatically deployed whenever code is pushed to GitHub.</p>
+    <div class="badge">✔ Live Deployment Active</div>
+</section>
+
+<section id="pipeline">
+    <h2>⚙️ CI/CD Pipeline</h2>
+    <ul>
+        <li>📦 Code pushed to GitHub</li>
+        <li>⚙️ Jenkins triggers build</li>
+        <li>📡 Ansible deploys to EC2</li>
+        <li>🌐 Apache serves updated website</li>
+    </ul>
 </section>
 
 <section id="about">
-    <h2>📘 About</h2>
-    <p>This project demonstrates a real-world DevOps workflow:</p>
-    <ul>
-        <li>✔ Code pushed to GitHub</li>
-        <li>✔ Jenkins triggers build</li>
-        <li>✔ Ansible deploys to EC2</li>
-        <li>✔ Apache serves the webpage</li>
-    </ul>
-</section>
+    <h2>📘 About Project</h2>
+    <p>This is a real-world DevOps project demonstrating Continuous Integration and Continuous Deployment.</p>
+    <p><b>Tools Used:</b> GitHub, Jenkins, Ansible, AWS EC2, Apache2</p>
 
-<section id="project">
-    <h2>⚙️ Project Details</h2>
-    <p><strong>Tools Used:</strong></p>
-    <ul>
-        <li>GitHub</li>
-        <li>Jenkins</li>
-        <li>Ansible</li>
-        <li>AWS EC2 (Ubuntu)</li>
-        <li>Apache2</li>
-    </ul>
+    <p><b>Last Deployment:</b> 
+        <span id="time"></span>
+    </p>
 </section>
 
 <footer>
-    <p>© 2026 Kuldeep DevOps Projects 🚀</p>
+    <p>© 2026 Kuldeep DevOps Project 🚀</p>
 </footer>
+
+<script>
+    document.getElementById("time").innerText = new Date().toLocaleString();
+</script>
 
 </body>
 </html>
