@@ -1,20 +1,15 @@
 ---
-- name: Upload new code and ReStart the service
-  hosts: 15.206.158.10
-
-  vars:
-    app: httpd
+- name: Deploy website
+  hosts: all
+  become: true
 
   tasks:
-    - name: Place custom HTML File
+    - name: Copy index.html
       copy:
-        src: /var/lib/jenkins/workspace/web-server-update/index.html
+        src: ./index.html
         dest: /var/www/html/index.html
-      become: true
 
-    - name: Start the service
+    - name: Restart Apache
       service:
         name: httpd
         state: restarted
-        enabled: yes
-      become: true
